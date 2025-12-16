@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const block = document.createElement("div");
+        console.log(block);
+        block.style.backgroundColor = "gray";
+        block.className = "parent";
+        const unorderli = document.createElement("ul")
+        unorderli.className = "langList";
+        const li = document.createElement("li");
+        const addText = document.createTextNode("java")
+        li.appendChild(addText)
+        unorderli.appendChild(li)
+        block.appendChild(unorderli)
+        document.body.appendChild(block)
+        function addLang(langName) {
+            const unoli= document.querySelector(".langList")
+            const li = document.createElement("li");
+            const addText = document.createTextNode(`${langName}`);
+            li.appendChild(addText)
+            unoli.appendChild(li)
+        }
+        function removlang(){
+            const unoli= document.querySelector(".langList")
+            unoli.lastElementChild.remove();
+        }
+        function editLang(num,langName){
+            const unoli= document.querySelector(".langList")
+            const li = document.createElement("li");
+            const addText = document.createTextNode(`${langName}`);
+            li.appendChild(addText)
+            const pli = unoli.querySelector(`li:nth-child(${num})`)
+            pli.replaceWith(li)
+        }
+        addLang("python")
+        addLang("cpp")
+        removlang();
+        addLang("cpp")
+        addLang("ruby")
+        addLang("dbms")
+        addLang("rust")
+        editLang(Number(3),"dsa")
+    </script>
+</body>
+
+</html>
